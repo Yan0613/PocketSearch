@@ -1,25 +1,27 @@
 package com.yupi.springbootinit.model.enums;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.apache.commons.lang3.ObjectUtils;
 
 /**
- * 用户角色枚举
+ * 搜索类型枚举
  *
  */
-public enum UserRoleEnum {
+public enum SearchTypeEnum {
 
+    POST("帖子", "post"),
     USER("用户", "user"),
-    ADMIN("管理员", "admin"),
-    BAN("被封号", "ban");
+    PICTURE("图片", "picture"),
+    VIDEO("视频", "video");
 
     private final String text;
 
     private final String value;
 
-    UserRoleEnum(String text, String value) {
+    SearchTypeEnum(String text, String value) {
         this.text = text;
         this.value = value;
     }
@@ -39,11 +41,11 @@ public enum UserRoleEnum {
      * @param value
      * @return
      */
-    public static UserRoleEnum getEnumByValue(String value) {
+    public static SearchTypeEnum getEnumByValue(String value) {
         if (ObjectUtils.isEmpty(value)) {
             return null;
         }
-        for (UserRoleEnum anEnum : UserRoleEnum.values()) {
+        for (SearchTypeEnum anEnum : SearchTypeEnum.values()) {
             if (anEnum.value.equals(value)) {
                 return anEnum;
             }
