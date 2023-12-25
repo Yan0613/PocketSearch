@@ -67,7 +67,7 @@ public class SearchFacade {
             });
 
             CompletableFuture<Page<Picture>> pictureTask = CompletableFuture.supplyAsync(() -> {
-                Page<Picture> picturePage = pictureDataSource.doSearch(searchText, 1, 10);
+                Page<Picture> picturePage = pictureDataSource.doSearch(searchText, current, pageSize);
                 return picturePage;
             });
 

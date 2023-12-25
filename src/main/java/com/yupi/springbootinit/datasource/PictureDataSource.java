@@ -16,12 +16,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 图片服务实现类
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @Service
 public class PictureDataSource implements DataSource<Picture> {
@@ -51,14 +51,13 @@ public class PictureDataSource implements DataSource<Picture> {
             picture.setTitle(title);
             picture.setUrl(murl);
             pictures.add(picture);
-            if (pictures.size() >= pageSize) {
-                break;
-            }
+//            if (pictures.size() >= pageSize) {
+//                break;
+//            }
         }
-        Page<Picture> picturePage = new Page<>(pageNum, pageSize);
+//        Page<Picture> picturePage = new Page<>(pageNum, pageSize);
+        Page<Picture> picturePage = new Page<>();
         picturePage.setRecords(pictures);
         return picturePage;
     }
 }
-
-// [加入编程导航](https://t.zsxq.com/0emozsIJh) 入门捷径+交流答疑+项目实战+求职指导，帮你自学编程不走弯路
